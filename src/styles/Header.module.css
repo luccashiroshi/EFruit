@@ -1,0 +1,21 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    margin: 10px 0 0 50px;
+    padding: 0;
+    font-size: 3.5rem;
+}
+
+.logo p {
+    margin:0;
+    padding: 0;
+}
+
+.cart {
+    font-size: 3.5rem;
+    margin: 10px 50px 0 0;
+}
