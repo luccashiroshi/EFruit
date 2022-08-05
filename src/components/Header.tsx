@@ -1,13 +1,23 @@
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Link } from 'react-router-dom';
 import styles from '../styles/Header.module.css'
-export default function Header() {
+
+type icons = {
+    icon: 'back' | 'cart'
+}
+
+export default function Header(icon : icons) {
+    // Define o ícone
+    const material = icon.icon === 'cart' ? <ShoppingCartIcon fontSize='inherit' color='success'/> : <ArrowBackIcon fontSize='inherit' color='success'/>
+    // Define a rota
+    const route = icon.icon === 'cart' ? '/cart' : '/'
     return (
         <div className={styles.header}>
-            <div className={styles.logo}>
+            <Link to='/' className={styles.logo}>
                 <p>E<span>FRUIT</span></p>
-            </div>
-            <span className={styles.cart}><Link to='/cart'><ShoppingCartIcon fontSize='inherit' color='success' /></Link></span>
+            </Link>
+            <span className={styles.icon}><Link to={route}>{material}</Link></span>
         </div>
     )
 }

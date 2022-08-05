@@ -2,20 +2,31 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    background: linear-gradient(to bottom, #8ec08e, #a5cfa5 );
+    letter-spacing: 0.25rem;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
 }
 
 .logo {
-    margin: 10px 0 0 50px;
-    padding: 0;
+    margin: 0 0 0 50px;
+    padding: 20px 0;
     font-size: 3.5rem;
+    text-decoration: none;
 }
 
 .logo p {
     margin:0;
     padding: 0;
+    color: #FFF;
+    font-weight: 300;
+}
+.logo span {
+    color: #388e3c;
+    margin-left: 10px;
+    font-weight: 500;
 }
 
-.cart {
+.icon {
     font-size: 3.5rem;
     margin: 10px 50px 0 0;
 }
