@@ -15,6 +15,11 @@ interface ExpandMoreProps extends IconButtonProps {
     expand: boolean;
 }
 
+type FruitProps = {
+    name: string,
+    nutrients: object
+}
+
 const ExpandMore = styled((props: ExpandMoreProps) => {
     const { expand, ...other } = props;
     return <IconButton {...other} />;
@@ -26,17 +31,22 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
     }),
 }));
 
-export default function FruitCard() {
+export default function FruitCard(item: FruitProps) {
+
     const [expanded, setExpanded] = React.useState(false);
+
+    const [fruit, setFruit] = React.useState([])
+
+    // setFruit(item)
 
     const handleExpandClick = () => {
         setExpanded(!expanded);
     };
 
     return (
-        <Card sx={{ maxWidth: 345 }}>
-            <CardHeader title="Fruta" />
-            <CardMedia component="img" height="194" image="" alt="fruta" />
+        <Card sx={{minWidth:300 }}>
+            <CardHeader title={item.name} />
+            <CardMedia component="img" height="194" image="../" alt={item.name} />
             <CardActions disableSpacing>
                 <ButtonGroup disableElevation variant="contained">
                     <Button>+</Button>
@@ -50,19 +60,19 @@ export default function FruitCard() {
                 <CardContent>
                     <Typography paragraph>Informações Nutricionais:</Typography>
                     <Typography paragraph>
-                        Carboidratos:
+                        Carboidratos: {item.nutrients.carbohydrates}
                     </Typography>
                     <Typography paragraph>
-                        Proteínas:
+                        Proteínas: {item.nutrients.protein}
                     </Typography>
                     <Typography paragraph>
-                        Gordura:
+                        Gordura: {item.nutrients.fat}
                     </Typography>
                     <Typography paragraph>
-                        Calorias:
+                        Calorias: {item.nutrients.calories}
                     </Typography>
                     <Typography paragraph>
-                        Acúcar:
+                        Acúcar: {item.nutrients.sugar}
                     </Typography>
                 </CardContent>
             </Collapse>

@@ -1,0 +1,13 @@
+.content {
+    width: 100%;
+}
+.content ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+}
+.content ul li {
+    margin: 20px;
+}
