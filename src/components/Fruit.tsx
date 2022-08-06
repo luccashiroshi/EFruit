@@ -16,8 +16,15 @@ interface ExpandMoreProps extends IconButtonProps {
 }
 
 type FruitProps = {
+    id: number
     name: string,
-    nutrients: object
+    nutrients: {
+        carbohydrates: number,
+        protein: number,
+        fat: number,
+        calories: number,
+        sugar: number,
+    }
 }
 
 const ExpandMore = styled((props: ExpandMoreProps) => {
@@ -35,22 +42,18 @@ export default function FruitCard(item: FruitProps) {
 
     const [expanded, setExpanded] = React.useState(false);
 
-    const [fruit, setFruit] = React.useState([])
-
-    // setFruit(item)
-
     const handleExpandClick = () => {
         setExpanded(!expanded);
     };
 
     return (
-        <Card sx={{minWidth:300 }}>
+        <Card sx={{minWidth:300, backgroundColor: '#d5f5d5', borderRadius: '10px', boxShadow: '0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)'}}>
             <CardHeader title={item.name} />
-            <CardMedia component="img" height="194" image="../" alt={item.name} />
+            <CardMedia component="img" height="194" image={`/src/assets/${item.name}.jpg`} alt={item.name} />
             <CardActions disableSpacing>
                 <ButtonGroup disableElevation variant="contained">
-                    <Button>+</Button>
-                    <Button>-</Button>
+                    <Button color="success" sx={{fontWeight: "1.5rem"}}>+</Button>
+                    <Button variant='outlined'>-</Button>
                 </ButtonGroup>
                 <ExpandMore expand={expanded} onClick={handleExpandClick} aria-expanded={expanded} aria-label="show more">
                     <ExpandMoreIcon />

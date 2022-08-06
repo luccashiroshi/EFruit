@@ -9,6 +9,19 @@ export default function List() {
     const url = 'http://localhost:3001'
     const [fruits, setFruits] = useState([])
 
+    type typeFruit = {
+        name: string,
+        id: number,
+        nutritions: {
+            carbohydrates: number,
+            protein: number,
+            fat: number,
+            calories: number,
+            sugar: number,
+        }
+
+    }
+
     // useEffect(() => {
     //     fetch('https://fruityvice.com/api/fruit/all')
     //         .then(response => response.json())
@@ -24,10 +37,10 @@ export default function List() {
     return (
         <div className={styles.content}>
             <ul>
-                {fruits.map(fruit => {
+                {fruits.map((fruit: typeFruit) => {
                     return (
                         <li key={fruit.id}>
-                            <FruitCard name={fruit.name} nutrients={fruit.nutritions} />
+                            <FruitCard name={fruit.name} nutrients={fruit.nutritions} id={fruit.id} />
                         </li>
                     )
                 })}
