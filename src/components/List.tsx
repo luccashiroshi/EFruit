@@ -1,13 +1,27 @@
-import axios from "axios";
+// import axios from "axios";
+// import api from "../services/api";
 import { useEffect, useState } from "react";
-import api from "../services/api";
 import FruitCard from "./Fruit";
 import styles from '../styles/List.module.css'
 
 export default function List() {
 
-    const url = 'http://localhost:3001'
+    const networkUrl = "http://192.168.1.60:3001"
+    // const url = 'http://localhost:3001'
+
     const [fruits, setFruits] = useState([])
+
+    // useEffect(() => {
+    //     fetch('https://fruityvice.com/api/fruit/all')
+    //         .then(response => response.json())
+    //         .then(data => setFruits(data))
+    // }, [])
+
+    useEffect(() => {
+        fetch(`${networkUrl}/fruits`)
+            .then(response => response.json())
+            .then(data => setFruits(data))
+    }, [])
 
     type typeFruit = {
         name: string,
@@ -22,25 +36,13 @@ export default function List() {
 
     }
 
-    // useEffect(() => {
-    //     fetch('https://fruityvice.com/api/fruit/all')
-    //         .then(response => response.json())
-    //         .then(data => setFruits(data))
-    // }, [])
-
-    useEffect(() => {
-        fetch(`${url}/fruits`)
-            .then(response => response.json())
-            .then(data => setFruits(data))
-    }, [])
-
     return (
         <div className={styles.content}>
             <ul>
                 {fruits.map((fruit: typeFruit) => {
                     return (
                         <li key={fruit.id}>
-                            <FruitCard name={fruit.name} nutrients={fruit.nutritions} id={fruit.id} />
+                            <FruitCard name={fruit.name} nutrients={fruit.nutritions} id={fruit.id}/>
                         </li>
                     )
                 })}
