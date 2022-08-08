@@ -1,6 +1,27 @@
 .fruitImg {
-    max-width: 10%;
-    max-width: 10%;
+    max-width: 20vw;
+    max-height: 10vh;
     border: solid 1px #0001;
     border-radius: 8px;
+}
+
+.fruitName {
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.total {
+    font-weight: 800;
+    font-size: 1.1rem;
+    margin: 0;
+    padding: 5px;
+}
+
+
+@media (max-width: 500px) {
+    .fruitName {
+        display:none
+    }
 }
