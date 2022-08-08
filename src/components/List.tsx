@@ -1,5 +1,3 @@
-// import axios from "axios";
-// import api from "../services/api";
 import { useEffect, useState } from "react";
 import FruitCard from "./Fruit";
 import styles from '../styles/List.module.css'

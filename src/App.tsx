@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { CartProvider } from './components/CartContext'
 import Cart from './pages/Cart'
